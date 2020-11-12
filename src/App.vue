@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<center>
+		<Registration @registration="getData"></Registration>
+	</center>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Registration from '@/components/Registration.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Registration
+  },
+  methods: {
+    getData: function(event) {
+        this.UserData = event;
+		console.log(this.UserData);
+    }
+  },
+  data() {
+      return {
+          UserData : []
+      };
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
